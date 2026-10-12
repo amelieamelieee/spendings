@@ -2,24 +2,13 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>FinanceDashboardHome</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#FBF7F0" />
+    <title>Spendings</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;200;300;400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap"
       rel="stylesheet"
     />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
@@ -37,11 +26,8 @@
         --color-accent: var(--accent);
         --color-accent-foreground: var(--accent-foreground);
         --color-destructive: var(--destructive);
-        --color-destructive-foreground: var(--destructive-foreground);
         --color-card: var(--card);
         --color-card-foreground: var(--card-foreground);
-        --color-popover: var(--popover);
-        --color-popover-foreground: var(--popover-foreground);
         --color-border: var(--border);
         --color-input: var(--input);
         --color-ring: var(--ring);
@@ -50,111 +36,14 @@
         --color-chart-3: var(--chart-3);
         --color-chart-4: var(--chart-4);
         --color-chart-5: var(--chart-5);
-
         --font-sans: var(--font-sans);
-        --font-heading: var(--font-heading, var(--font-sans));
-        --font-serif: var(--font-serif);
-        --font-mono: var(--font-mono);
+        --font-heading: var(--font-heading);
       }
-
-      @theme {
-        --radius-xs: calc(var(--radius) - 8px);
-        --radius-sm: calc(var(--radius) - 4px);
-        --radius-md: calc(var(--radius) - 2px);
-        --radius-lg: var(--radius);
-        --radius-xl: calc(var(--radius) + 4px);
-        --radius-2xl: calc(var(--radius) + 8px);
-        --radius-3xl: calc(var(--radius) + 16px);
-        --radius-4xl: calc(var(--radius) + 24px);
-      }
-
-      * {
-        corner-shape: var(--shape, round);
-      }
-
-      .rounded-full, .rounded-none,
-      .rounded-t-full, .rounded-t-none,
-      .rounded-r-full, .rounded-r-none,
-      .rounded-b-full, .rounded-b-none,
-      .rounded-l-full, .rounded-l-none,
-      .rounded-s-full, .rounded-s-none,
-      .rounded-e-full, .rounded-e-none,
-      .rounded-tl-full, .rounded-tl-none,
-      .rounded-tr-full, .rounded-tr-none,
-      .rounded-bl-full, .rounded-bl-none,
-      .rounded-br-full, .rounded-br-none,
-      .rounded-ss-full, .rounded-ss-none,
-      .rounded-se-full, .rounded-se-none,
-      .rounded-es-full, .rounded-es-none,
-      .rounded-ee-full, .rounded-ee-none {
-        corner-shape: round;
-      }
-
-      @utility rounded-* {
-        border-radius: calc(--value(--radius-*, [length], [percentage]) * var(--shape-multiplier, 1));
-      }
-      @utility rounded-t-* {
-        border-top-left-radius: calc(--value(--radius-*, [length], [percentage]) * var(--shape-multiplier, 1));
-        border-top-right-radius: calc(--value(--radius-*, [length], [percentage]) * var(--shape-multiplier, 1));
-      }
-      @utility rounded-r-* {
-        border-top-right-radius: calc(--value(--radius-*, [length], [percentage]) * var(--shape-multiplier, 1));
-        border-bottom-right-radius: calc(--value(--radius-*, [length], [percentage]) * var(--shape-multiplier, 1));
-      }
-      @utility rounded-b-* {
-        border-bottom-right-radius: calc(--value(--radius-*, [length], [percentage]) * var(--shape-multiplier, 1));
-        border-bottom-left-radius: calc(--value(--radius-*, [length], [percentage]) * var(--shape-multiplier, 1));
-      }
-      @utility rounded-l-* {
-        border-top-left-radius: calc(--value(--radius-*, [length], [percentage]) * var(--shape-multiplier, 1));
-        border-bottom-left-radius: calc(--value(--radius-*, [length], [percentage]) * var(--shape-multiplier, 1));
-      }
-      @utility rounded-tl-* {
-        border-top-left-radius: calc(--value(--radius-*, [length], [percentage]) * var(--shape-multiplier, 1));
-      }
-      @utility rounded-tr-* {
-        border-top-right-radius: calc(--value(--radius-*, [length], [percentage]) * var(--shape-multiplier, 1));
-      }
-      @utility rounded-bl-* {
-        border-bottom-left-radius: calc(--value(--radius-*, [length], [percentage]) * var(--shape-multiplier, 1));
-      }
-      @utility rounded-br-* {
-        border-bottom-right-radius: calc(--value(--radius-*, [length], [percentage]) * var(--shape-multiplier, 1));
-      }
-      @utility rounded-s-* {
-        border-start-start-radius: calc(--value(--radius-*, [length], [percentage]) * var(--shape-multiplier, 1));
-        border-end-start-radius: calc(--value(--radius-*, [length], [percentage]) * var(--shape-multiplier, 1));
-      }
-      @utility rounded-e-* {
-        border-start-end-radius: calc(--value(--radius-*, [length], [percentage]) * var(--shape-multiplier, 1));
-        border-end-end-radius: calc(--value(--radius-*, [length], [percentage]) * var(--shape-multiplier, 1));
-      }
-      @utility rounded-ss-* {
-        border-start-start-radius: calc(--value(--radius-*, [length], [percentage]) * var(--shape-multiplier, 1));
-      }
-      @utility rounded-se-* {
-        border-start-end-radius: calc(--value(--radius-*, [length], [percentage]) * var(--shape-multiplier, 1));
-      }
-      @utility rounded-es-* {
-        border-end-start-radius: calc(--value(--radius-*, [length], [percentage]) * var(--shape-multiplier, 1));
-      }
-      @utility rounded-ee-* {
-        border-end-end-radius: calc(--value(--radius-*, [length], [percentage]) * var(--shape-multiplier, 1));
-      }
-
       @layer base {
-        * {
-          @apply border-border outline-ring/50;
-        }
-        body {
-          @apply bg-background text-foreground font-sans;
-        }
+        * { @apply border-border outline-ring/50; }
+        body { @apply bg-background text-foreground font-sans; }
       }
-
       :root {
-        --shape: squircle;
-        --shape-multiplier: 1;
-
         --background: #FBF7F0;
         --foreground: #1B2A2E;
         --primary: #0F5257;
@@ -166,11 +55,8 @@
         --accent: #FDE4DB;
         --accent-foreground: #A8422C;
         --destructive: #C0392B;
-        --destructive-foreground: #FFFFFF;
         --card: #FFFFFF;
         --card-foreground: #1B2A2E;
-        --popover: #FFFFFF;
-        --popover-foreground: #1B2A2E;
         --border: #E8E1D5;
         --input: #F5F0E7;
         --ring: #0F5257;
@@ -179,264 +65,509 @@
         --chart-3: #F5A893;
         --chart-4: #7FB3AE;
         --chart-5: #D9CFC0;
-
         --font-sans: "Inter", sans-serif;
         --font-heading: "Manrope", sans-serif;
-        --font-serif: "Playfair Display", serif;
-        --font-mono: "JetBrains Mono", monospace;
-
-        --radius: 1rem;
       }
-
-      @supports (corner-shape: squircle) {
-        :root {
-          --shape-multiplier: 2.5;
-        }
-      }
-
-      /* Prevent layout shift for icons without explicit dimensions */
-      iconify-icon:not([width]):not([height]) {
-        display: inline-block;
-        width: 1em;
-        height: 1em;
-      }
-
-      /* Hide scrollbars */
-      *,
-      *::before,
-      *::after {
-        scrollbar-width: none;
-        -ms-overflow-style: none;
-      }
-      *::-webkit-scrollbar {
-        display: none;
-      }
+      iconify-icon:not([width]):not([height]) { display: inline-block; width: 1em; height: 1em; }
+      *, *::before, *::after { scrollbar-width: none; }
+      *::-webkit-scrollbar { display: none; }
+      .sheet { transition: transform .25s ease; }
+      .sheet.hidden-sheet { transform: translateY(100%); }
+      .backdrop { transition: opacity .25s ease; }
+      input, select { font-size: 16px; }
     </style>
   </head>
   <body>
-    <div>
-      <div class="min-h-screen bg-background text-foreground pb-24 px-5 pt-6 max-w-md mx-auto">
-        <div class="flex items-center justify-between mb-5">
-          <div class="flex items-center gap-3">
-            <img
-              src="https://avatars.githubusercontent.com/u/194534674?v=4"
-              alt="Amelie Totz"
-              class="size-10 rounded-full object-cover border border-border"
-            />
-            <div>
-              <p class="text-xs text-muted-foreground">Welcome back</p>
-              <p class="text-sm font-semibold">Amelie Totz</p>
-            </div>
+    <div class="min-h-screen pb-28 px-5 pt-6 max-w-md mx-auto">
+      <!-- Header -->
+      <div class="flex items-center justify-between mb-5">
+        <button data-tab="profile" class="flex items-center gap-3 text-left">
+          <img id="avatar" alt="" class="size-10 rounded-full object-cover border border-border bg-muted" />
+          <div>
+            <p class="text-xs text-muted-foreground">Welcome back</p>
+            <p id="userName" class="text-sm font-semibold"></p>
           </div>
-          <button
-            class="size-10 rounded-full bg-card border border-border shadow-sm flex items-center justify-center"
-          >
-            <iconify-icon icon="ph:bell" width="20" height="20"></iconify-icon>
-          </button>
-        </div>
-        <div class="bg-primary text-primary-foreground rounded-2xl p-5 shadow-sm mb-4">
-          <div class="flex items-center justify-between">
-            <div>
-              <p class="text-xs opacity-80">Total balance</p>
-              <h2 class="font-heading text-3xl font-bold mt-1">$24,580.40</h2>
-            </div>
-            <div class="text-right">
-              <p class="text-xs opacity-80">This month</p>
-              <p class="text-sm font-semibold text-chart-3">+$1,240</p>
-            </div>
-          </div>
-        </div>
-        <div
-          class="bg-card text-card-foreground rounded-2xl p-5 shadow-sm border border-border mb-4"
-        >
-          <div class="flex items-center justify-between mb-4">
-            <h2 class="font-heading text-base font-semibold">Monthly spending</h2>
-            <span class="text-xs text-muted-foreground">May 2025</span>
-          </div>
-          <div class="flex items-center gap-5">
-            <div class="relative size-32 shrink-0">
-              <svg viewBox="0 0 36 36" class="size-32 -rotate-90">
-                <circle cx="18" cy="18" r="14" fill="none" stroke="#E8E1D5" stroke-width="5" />
-                <circle
-                  cx="18"
-                  cy="18"
-                  r="14"
-                  fill="none"
-                  stroke="#F0735B"
-                  stroke-width="5"
-                  stroke-dasharray="36 88"
-                  stroke-linecap="round"
-                />
-                <circle
-                  cx="18"
-                  cy="18"
-                  r="14"
-                  fill="none"
-                  stroke="#0F5257"
-                  stroke-width="5"
-                  stroke-dasharray="26 98"
-                  stroke-dashoffset="-37"
-                  stroke-linecap="round"
-                />
-                <circle
-                  cx="18"
-                  cy="18"
-                  r="14"
-                  fill="none"
-                  stroke="#F5A893"
-                  stroke-width="5"
-                  stroke-dasharray="18 106"
-                  stroke-dashoffset="-65"
-                  stroke-linecap="round"
-                />
-                <circle
-                  cx="18"
-                  cy="18"
-                  r="14"
-                  fill="none"
-                  stroke="#7FB3AE"
-                  stroke-width="5"
-                  stroke-dasharray="12 112"
-                  stroke-dashoffset="-84"
-                  stroke-linecap="round"
-                />
-              </svg>
-              <div class="absolute inset-0 flex flex-col items-center justify-center">
-                <p class="text-xs text-muted-foreground">Spent</p>
-                <p class="font-heading text-lg font-bold">$3,842</p>
-              </div>
-            </div>
-            <div class="flex-1 space-y-2.5 text-sm">
-              <div class="flex items-center justify-between">
-                <span class="flex items-center gap-2"
-                  ><span class="size-2.5 rounded-full bg-chart-1"></span>Housing</span
-                ><span class="font-semibold">38%</span>
-              </div>
-              <div class="flex items-center justify-between">
-                <span class="flex items-center gap-2"
-                  ><span class="size-2.5 rounded-full bg-chart-2"></span>Food</span
-                ><span class="font-semibold">26%</span>
-              </div>
-              <div class="flex items-center justify-between">
-                <span class="flex items-center gap-2"
-                  ><span class="size-2.5 rounded-full bg-chart-3"></span>Transport</span
-                ><span class="font-semibold">18%</span>
-              </div>
-              <div class="flex items-center justify-between">
-                <span class="flex items-center gap-2"
-                  ><span class="size-2.5 rounded-full bg-chart-4"></span>Other</span
-                ><span class="font-semibold">18%</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="bg-card rounded-2xl p-5 shadow-sm border border-border mb-6">
-          <div class="flex items-center justify-between mb-3">
-            <div>
-              <p class="text-xs text-muted-foreground">Savings goal</p>
-              <p class="font-heading text-sm font-semibold">Emergency fund</p>
-            </div>
-            <span class="text-sm font-bold text-primary">68%</span>
-          </div>
-          <div class="h-2.5 w-full rounded-full bg-muted overflow-hidden">
-            <div class="h-full w-[68%] rounded-full bg-primary"></div>
-          </div>
-          <div class="flex justify-between text-xs text-muted-foreground mt-2">
-            <span>$13,600 saved</span><span>Goal $20,000</span>
-          </div>
-        </div>
-        <div class="flex items-center justify-between mb-3">
-          <h2 class="font-heading text-base font-semibold">Expense categories</h2>
-          <span class="text-xs text-primary font-semibold">See all</span>
-        </div>
-        <div class="space-y-3">
-          <div
-            class="bg-card rounded-2xl p-4 shadow-sm border border-border flex items-center gap-3"
-          >
-            <div class="size-11 rounded-xl bg-accent flex items-center justify-center">
-              <iconify-icon
-                icon="ph:house"
-                class="text-accent-foreground"
-                width="20"
-                height="20"
-              ></iconify-icon>
-            </div>
-            <div class="flex-1">
-              <p class="text-sm font-semibold">Housing</p>
-              <p class="text-xs text-muted-foreground">Rent &amp; utilities</p>
-            </div>
-            <p class="text-sm font-semibold">$1,460.00</p>
-          </div>
-          <div
-            class="bg-card rounded-2xl p-4 shadow-sm border border-border flex items-center gap-3"
-          >
-            <div class="size-11 rounded-xl bg-secondary flex items-center justify-center">
-              <iconify-icon
-                icon="ph:shopping-cart"
-                class="text-secondary-foreground"
-                width="20"
-                height="20"
-              ></iconify-icon>
-            </div>
-            <div class="flex-1">
-              <p class="text-sm font-semibold">Groceries</p>
-              <p class="text-xs text-muted-foreground">Food &amp; dining</p>
-            </div>
-            <p class="text-sm font-semibold">$998.25</p>
-          </div>
-          <div
-            class="bg-card rounded-2xl p-4 shadow-sm border border-border flex items-center gap-3"
-          >
-            <div class="size-11 rounded-xl bg-accent flex items-center justify-center">
-              <iconify-icon
-                icon="ph:car"
-                class="text-accent-foreground"
-                width="20"
-                height="20"
-              ></iconify-icon>
-            </div>
-            <div class="flex-1">
-              <p class="text-sm font-semibold">Transport</p>
-              <p class="text-xs text-muted-foreground">Fuel &amp; transit</p>
-            </div>
-            <p class="text-sm font-semibold">$691.60</p>
-          </div>
-          <div
-            class="bg-card rounded-2xl p-4 shadow-sm border border-border flex items-center gap-3"
-          >
-            <div class="size-11 rounded-xl bg-secondary flex items-center justify-center">
-              <iconify-icon
-                icon="ph:court-basketball"
-                class="text-secondary-foreground"
-                width="20"
-                height="20"
-              ></iconify-icon>
-            </div>
-            <div class="flex-1">
-              <p class="text-sm font-semibold">Leisure</p>
-              <p class="text-xs text-muted-foreground">Entertainment</p>
-            </div>
-            <p class="text-sm font-semibold">$692.90</p>
-          </div>
-        </div>
+        </button>
+        <button id="bellBtn" aria-label="Recent activity"
+          class="relative size-10 rounded-full bg-card border border-border shadow-sm flex items-center justify-center">
+          <iconify-icon icon="ph:bell" width="20" height="20"></iconify-icon>
+          <span id="bellDot" class="hidden absolute top-2 right-2.5 size-2 rounded-full bg-chart-1"></span>
+        </button>
       </div>
-      <div class="fixed bottom-0 left-0 right-0 bg-card border-t border-border">
-        <div class="max-w-md mx-auto flex justify-around py-3">
-          <button class="flex-1 flex flex-col items-center gap-1 text-primary">
-            <iconify-icon icon="ph:house-fill" width="24" height="24"></iconify-icon
-            ><span class="text-[11px] font-semibold">Home</span></button
-          ><button class="flex-1 flex flex-col items-center gap-1 text-muted-foreground">
-            <iconify-icon icon="ph:chart-pie" width="24" height="24"></iconify-icon
-            ><span class="text-[11px]">Insights</span></button
-          ><button class="flex-1 flex flex-col items-center gap-1 text-muted-foreground">
-            <iconify-icon icon="ph:arrows-left-right" width="24" height="24"></iconify-icon
-            ><span class="text-[11px]">Transfers</span></button
-          ><button class="flex-1 flex flex-col items-center gap-1 text-muted-foreground">
-            <iconify-icon icon="ph:user" width="24" height="24"></iconify-icon
-            ><span class="text-[11px]">Profile</span>
-          </button>
-        </div>
-      </div>
+
+      <main id="view"></main>
     </div>
+
+    <!-- Add button -->
+    <button id="addBtn" aria-label="Add transaction"
+      class="fixed bottom-20 right-[max(1.25rem,calc(50%-14rem+1.25rem))] size-14 rounded-full bg-primary text-primary-foreground shadow-lg flex items-center justify-center z-20">
+      <iconify-icon icon="ph:plus-bold" width="26" height="26"></iconify-icon>
+    </button>
+
+    <!-- Bottom nav -->
+    <nav class="fixed bottom-0 left-0 right-0 bg-card border-t border-border z-10">
+      <div class="max-w-md mx-auto flex justify-around py-3">
+        <button data-tab="home" class="nav-btn flex-1 flex flex-col items-center gap-1">
+          <iconify-icon icon="ph:house" width="24" height="24"></iconify-icon><span class="text-[11px]">Home</span>
+        </button>
+        <button data-tab="insights" class="nav-btn flex-1 flex flex-col items-center gap-1">
+          <iconify-icon icon="ph:chart-pie" width="24" height="24"></iconify-icon><span class="text-[11px]">Insights</span>
+        </button>
+        <button data-tab="transfers" class="nav-btn flex-1 flex flex-col items-center gap-1">
+          <iconify-icon icon="ph:arrows-left-right" width="24" height="24"></iconify-icon><span class="text-[11px]">Transfers</span>
+        </button>
+        <button data-tab="profile" class="nav-btn flex-1 flex flex-col items-center gap-1">
+          <iconify-icon icon="ph:user" width="24" height="24"></iconify-icon><span class="text-[11px]">Profile</span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Bottom sheet (add transaction / activity) -->
+    <div id="backdrop" class="backdrop fixed inset-0 bg-black/30 opacity-0 pointer-events-none z-30"></div>
+    <div id="sheet" class="sheet hidden-sheet fixed bottom-0 left-0 right-0 z-40">
+      <div id="sheetBody" class="max-w-md mx-auto bg-card rounded-t-3xl p-5 pb-8 shadow-xl max-h-[85vh] overflow-y-auto"></div>
+    </div>
+
+    <input id="importFile" type="file" accept="application/json,.json" class="hidden" />
+
+    <script>
+      // ---------- Data ----------
+      const KEY = "spendings-data-v1";
+      const CATEGORIES = {
+        expense: [
+          { id: "housing", name: "Housing", desc: "Rent & utilities", icon: "ph:house", color: "#F0735B" },
+          { id: "groceries", name: "Groceries", desc: "Food & dining", icon: "ph:shopping-cart", color: "#0F5257" },
+          { id: "transport", name: "Transport", desc: "Fuel & transit", icon: "ph:car", color: "#F5A893" },
+          { id: "leisure", name: "Leisure", desc: "Entertainment", icon: "ph:court-basketball", color: "#7FB3AE" },
+          { id: "shopping", name: "Shopping", desc: "Clothes & stuff", icon: "ph:bag", color: "#C9A86A" },
+          { id: "health", name: "Health", desc: "Doctor & pharmacy", icon: "ph:heartbeat", color: "#A8422C" },
+          { id: "other", name: "Other", desc: "Everything else", icon: "ph:dots-three", color: "#D9CFC0" },
+        ],
+        income: [
+          { id: "salary", name: "Salary", desc: "Paycheck", icon: "ph:briefcase", color: "#0F5257" },
+          { id: "gift", name: "Gift", desc: "Money received", icon: "ph:gift", color: "#7FB3AE" },
+          { id: "other-income", name: "Other income", desc: "Side jobs, refunds", icon: "ph:coins", color: "#F5A893" },
+        ],
+        saving: [{ id: "savings", name: "Savings", desc: "To savings goal", icon: "ph:piggy-bank", color: "#0F5257" }],
+      };
+      const ALL_CATS = Object.fromEntries(Object.values(CATEGORIES).flat().map((c) => [c.id, c]));
+
+      const defaults = () => ({
+        profile: {
+          name: "Amelie Totz",
+          avatar: "https://avatars.githubusercontent.com/u/194534674?v=4",
+          currency: "$",
+          startBalance: 0,
+        },
+        goal: { name: "Emergency fund", target: 20000, startSaved: 0 },
+        tx: [],
+        seenCount: 0,
+      });
+
+      function load() {
+        try {
+          const raw = localStorage.getItem(KEY);
+          if (raw) return Object.assign(defaults(), JSON.parse(raw));
+        } catch (e) {}
+        return defaults();
+      }
+      function save() {
+        try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {}
+      }
+      let state = load();
+      let tab = "home";
+      let insightMonth = monthKey(new Date());
+
+      // ---------- Helpers ----------
+      function esc(s) {
+        return String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
+      }
+      function money(n, sign = false) {
+        const s = Math.abs(n).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        const pre = n < 0 ? "−" : sign && n > 0 ? "+" : "";
+        return pre + state.profile.currency + s;
+      }
+      function monthKey(d) { return d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0"); }
+      function monthLabel(key) {
+        const [y, m] = key.split("-").map(Number);
+        return new Date(y, m - 1, 1).toLocaleDateString("en-US", { month: "long", year: "numeric" });
+      }
+      function shiftMonth(key, delta) {
+        const [y, m] = key.split("-").map(Number);
+        return monthKey(new Date(y, m - 1 + delta, 1));
+      }
+      function today() {
+        const d = new Date();
+        return d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0");
+      }
+      function dayLabel(iso) {
+        const t = today();
+        const y = new Date(); y.setDate(y.getDate() - 1);
+        const yIso = monthKey(y) + "-" + String(y.getDate()).padStart(2, "0");
+        if (iso === t) return "Today";
+        if (iso === yIso) return "Yesterday";
+        const [a, b, c] = iso.split("-").map(Number);
+        return new Date(a, b - 1, c).toLocaleDateString("en-US", { weekday: "short", month: "short", day: "numeric" });
+      }
+      const inMonth = (t, key) => t.date.slice(0, 7) === key;
+      const sorted = () => [...state.tx].sort((a, b) => (b.date + b.created).localeCompare(a.date + a.created));
+
+      function totals(key) {
+        let income = 0, expense = 0, saving = 0;
+        const byCat = {};
+        for (const t of state.tx) {
+          if (key && !inMonth(t, key)) continue;
+          if (t.type === "income") income += t.amount;
+          else if (t.type === "saving") saving += t.amount;
+          else { expense += t.amount; byCat[t.category] = (byCat[t.category] || 0) + t.amount; }
+        }
+        return { income, expense, saving, byCat };
+      }
+      function balance() {
+        const all = totals();
+        return state.profile.startBalance + all.income - all.expense - all.saving;
+      }
+      function savedTotal() { return state.goal.startSaved + totals().saving; }
+
+      // ---------- Components ----------
+      function donut(byCat, total) {
+        const r = 14, C = 2 * Math.PI * r;
+        let offset = 0, segs = "";
+        const entries = CATEGORIES.expense.filter((c) => byCat[c.id] > 0);
+        for (const c of entries) {
+          const len = (byCat[c.id] / total) * C;
+          const gap = entries.length > 1 ? Math.min(1.2, len * 0.3) : 0;
+          segs += `<circle cx="18" cy="18" r="${r}" fill="none" stroke="${c.color}" stroke-width="5"
+            stroke-dasharray="${Math.max(len - gap, 0.01)} ${C}" stroke-dashoffset="${-offset}" />`;
+          offset += len;
+        }
+        return `<div class="relative size-32 shrink-0">
+          <svg viewBox="0 0 36 36" class="size-32 -rotate-90">
+            <circle cx="18" cy="18" r="${r}" fill="none" stroke="#E8E1D5" stroke-width="5" />${segs}
+          </svg>
+          <div class="absolute inset-0 flex flex-col items-center justify-center">
+            <p class="text-xs text-muted-foreground">Spent</p>
+            <p class="font-heading text-base font-bold">${money(total).replace(/\.\d\d$/, "")}</p>
+          </div></div>`;
+      }
+      function legend(byCat, total) {
+        const rows = CATEGORIES.expense
+          .filter((c) => byCat[c.id] > 0)
+          .sort((a, b) => byCat[b.id] - byCat[a.id])
+          .map((c) => `<div class="flex items-center justify-between">
+            <span class="flex items-center gap-2"><span class="size-2.5 rounded-full" style="background:${c.color}"></span>${c.name}</span>
+            <span class="font-semibold">${Math.round((byCat[c.id] / total) * 100)}%</span></div>`).join("");
+        return `<div class="flex-1 space-y-2.5 text-sm">${rows}</div>`;
+      }
+      function spendingCard(key, title) {
+        const { expense, byCat } = totals(key);
+        const body = expense > 0
+          ? `<div class="flex items-center gap-5">${donut(byCat, expense)}${legend(byCat, expense)}</div>`
+          : `<div class="text-center py-6">
+              <p class="text-sm text-muted-foreground">No spending recorded yet.</p>
+              <button class="add-open mt-3 text-sm font-semibold text-primary">+ Add your first expense</button></div>`;
+        return `<div class="bg-card rounded-2xl p-5 shadow-sm border border-border mb-4">
+          <div class="flex items-center justify-between mb-4">
+            <h2 class="font-heading text-base font-semibold">${title}</h2>
+            <span class="text-xs text-muted-foreground">${monthLabel(key)}</span>
+          </div>${body}</div>`;
+      }
+      function txRow(t, withDelete = false) {
+        const c = ALL_CATS[t.category] || ALL_CATS.other;
+        const amt = t.type === "income" ? money(t.amount, true) : "−" + money(t.amount);
+        const color = t.type === "income" ? "text-primary" : "";
+        const bg = t.type === "expense" ? "bg-accent text-accent-foreground" : "bg-secondary text-secondary-foreground";
+        return `<div class="bg-card rounded-2xl p-4 shadow-sm border border-border flex items-center gap-3">
+          <div class="size-11 rounded-xl ${bg} flex items-center justify-center shrink-0">
+            <iconify-icon icon="${c.icon}" width="20" height="20"></iconify-icon></div>
+          <div class="flex-1 min-w-0">
+            <p class="text-sm font-semibold truncate">${esc(t.note) || c.name}</p>
+            <p class="text-xs text-muted-foreground truncate">${c.name} · ${dayLabel(t.date)}</p>
+          </div>
+          <p class="text-sm font-semibold ${color} whitespace-nowrap">${amt}</p>
+          ${withDelete ? `<button data-del="${t.id}" aria-label="Delete" class="text-muted-foreground p-1 -mr-1">
+            <iconify-icon icon="ph:trash" width="18" height="18"></iconify-icon></button>` : ""}
+        </div>`;
+      }
+
+      // ---------- Views ----------
+      function viewHome() {
+        const key = monthKey(new Date());
+        const m = totals(key);
+        const net = m.income - m.expense;
+        const saved = savedTotal();
+        const pct = state.goal.target > 0 ? Math.min(100, Math.round((saved / state.goal.target) * 100)) : 0;
+        const cats = CATEGORIES.expense.map((c) => {
+          const amt = m.byCat[c.id] || 0;
+          if (!amt) return "";
+          const bg = ["housing", "transport", "health", "shopping"].includes(c.id) ? "bg-accent text-accent-foreground" : "bg-secondary text-secondary-foreground";
+          return `<div class="bg-card rounded-2xl p-4 shadow-sm border border-border flex items-center gap-3">
+            <div class="size-11 rounded-xl ${bg} flex items-center justify-center">
+              <iconify-icon icon="${c.icon}" width="20" height="20"></iconify-icon></div>
+            <div class="flex-1"><p class="text-sm font-semibold">${c.name}</p><p class="text-xs text-muted-foreground">${c.desc}</p></div>
+            <p class="text-sm font-semibold">${money(amt)}</p></div>`;
+        }).join("");
+        return `
+          <div class="bg-primary text-primary-foreground rounded-2xl p-5 shadow-sm mb-4">
+            <div class="flex items-center justify-between">
+              <div><p class="text-xs opacity-80">Total balance</p>
+                <h2 class="font-heading text-3xl font-bold mt-1">${money(balance())}</h2></div>
+              <div class="text-right"><p class="text-xs opacity-80">This month</p>
+                <p class="text-sm font-semibold ${net >= 0 ? "text-chart-3" : "text-[#FFB4A3]"}">${money(net, true)}</p></div>
+            </div>
+            <div class="flex gap-2 mt-4">
+              <button data-quick="income" class="flex-1 bg-white/15 rounded-xl py-2 text-xs font-semibold flex items-center justify-center gap-1.5">
+                <iconify-icon icon="ph:arrow-down-left" width="14" height="14"></iconify-icon>Income</button>
+              <button data-quick="expense" class="flex-1 bg-white/15 rounded-xl py-2 text-xs font-semibold flex items-center justify-center gap-1.5">
+                <iconify-icon icon="ph:arrow-up-right" width="14" height="14"></iconify-icon>Expense</button>
+              <button data-quick="saving" class="flex-1 bg-white/15 rounded-xl py-2 text-xs font-semibold flex items-center justify-center gap-1.5">
+                <iconify-icon icon="ph:piggy-bank" width="14" height="14"></iconify-icon>Save</button>
+            </div>
+          </div>
+          ${spendingCard(key, "Monthly spending")}
+          <button data-tab="profile" class="block w-full text-left bg-card rounded-2xl p-5 shadow-sm border border-border mb-6">
+            <div class="flex items-center justify-between mb-3">
+              <div><p class="text-xs text-muted-foreground">Savings goal</p>
+                <p class="font-heading text-sm font-semibold">${esc(state.goal.name)}</p></div>
+              <span class="text-sm font-bold text-primary">${pct}%</span>
+            </div>
+            <div class="h-2.5 w-full rounded-full bg-muted overflow-hidden">
+              <div class="h-full rounded-full bg-primary" style="width:${pct}%"></div></div>
+            <div class="flex justify-between text-xs text-muted-foreground mt-2">
+              <span>${money(saved)} saved</span><span>Goal ${money(state.goal.target)}</span></div>
+          </button>
+          ${cats ? `<div class="flex items-center justify-between mb-3">
+              <h2 class="font-heading text-base font-semibold">Expense categories</h2>
+              <button data-tab="insights" class="text-xs text-primary font-semibold">See all</button></div>
+            <div class="space-y-3 mb-6">${cats}</div>` : ""}
+          ${state.tx.length ? `<div class="flex items-center justify-between mb-3">
+              <h2 class="font-heading text-base font-semibold">Recent</h2>
+              <button data-tab="transfers" class="text-xs text-primary font-semibold">See all</button></div>
+            <div class="space-y-3">${sorted().slice(0, 4).map((t) => txRow(t)).join("")}</div>` : ""}`;
+      }
+
+      function viewInsights() {
+        const key = insightMonth;
+        const m = totals(key);
+        const months = Array.from({ length: 6 }, (_, i) => shiftMonth(key, i - 5));
+        const vals = months.map((k) => totals(k).expense);
+        const max = Math.max(...vals, 1);
+        const bars = months.map((k, i) => `<div class="flex-1 flex flex-col items-center gap-1.5">
+            <div class="w-full h-28 flex items-end"><div class="w-full rounded-lg ${k === key ? "bg-primary" : "bg-chart-4/50"}" style="height:${Math.max((vals[i] / max) * 100, vals[i] ? 4 : 2)}%"></div></div>
+            <span class="text-[10px] ${k === key ? "font-semibold" : "text-muted-foreground"}">${monthLabel(k).slice(0, 3)}</span></div>`).join("");
+        const catRows = CATEGORIES.expense.filter((c) => m.byCat[c.id]).sort((a, b) => m.byCat[b.id] - m.byCat[a.id]).map((c) => {
+          const p = (m.byCat[c.id] / m.expense) * 100;
+          return `<div><div class="flex justify-between text-sm mb-1.5"><span>${c.name}</span><span class="font-semibold">${money(m.byCat[c.id])}</span></div>
+            <div class="h-2 rounded-full bg-muted overflow-hidden"><div class="h-full rounded-full" style="width:${p}%;background:${c.color}"></div></div></div>`;
+        }).join("");
+        return `
+          <div class="flex items-center justify-between mb-4">
+            <button id="prevM" class="size-9 rounded-full bg-card border border-border flex items-center justify-center" aria-label="Previous month">
+              <iconify-icon icon="ph:caret-left" width="18" height="18"></iconify-icon></button>
+            <h1 class="font-heading text-lg font-bold">${monthLabel(key)}</h1>
+            <button id="nextM" class="size-9 rounded-full bg-card border border-border flex items-center justify-center" aria-label="Next month">
+              <iconify-icon icon="ph:caret-right" width="18" height="18"></iconify-icon></button>
+          </div>
+          <div class="grid grid-cols-3 gap-3 mb-4">
+            <div class="bg-card rounded-2xl p-3 border border-border shadow-sm"><p class="text-[11px] text-muted-foreground">Income</p><p class="text-sm font-bold text-primary mt-0.5">${money(m.income)}</p></div>
+            <div class="bg-card rounded-2xl p-3 border border-border shadow-sm"><p class="text-[11px] text-muted-foreground">Spent</p><p class="text-sm font-bold mt-0.5">${money(m.expense)}</p></div>
+            <div class="bg-card rounded-2xl p-3 border border-border shadow-sm"><p class="text-[11px] text-muted-foreground">Saved</p><p class="text-sm font-bold mt-0.5">${money(m.saving)}</p></div>
+          </div>
+          ${spendingCard(key, "Spending by category")}
+          ${catRows ? `<div class="bg-card rounded-2xl p-5 shadow-sm border border-border mb-4 space-y-4">${catRows}</div>` : ""}
+          <div class="bg-card rounded-2xl p-5 shadow-sm border border-border">
+            <h2 class="font-heading text-base font-semibold mb-4">Last 6 months</h2>
+            <div class="flex gap-2">${bars}</div>
+          </div>`;
+      }
+
+      let txFilter = "all";
+      function viewTransfers() {
+        const list = sorted().filter((t) => txFilter === "all" || t.type === txFilter);
+        const groups = {};
+        for (const t of list) (groups[t.date] ||= []).push(t);
+        const chips = [["all", "All"], ["expense", "Expenses"], ["income", "Income"], ["saving", "Savings"]]
+          .map(([id, l]) => `<button data-filter="${id}" class="px-3.5 py-1.5 rounded-full text-xs font-semibold border ${txFilter === id ? "bg-primary text-primary-foreground border-primary" : "bg-card border-border"}">${l}</button>`).join("");
+        const body = list.length
+          ? Object.entries(groups).map(([d, ts]) => `<p class="text-xs font-semibold text-muted-foreground mt-5 mb-2">${dayLabel(d)}</p>
+              <div class="space-y-3">${ts.map((t) => txRow(t, true)).join("")}</div>`).join("")
+          : `<div class="text-center py-16"><iconify-icon icon="ph:receipt" width="40" height="40" class="text-muted-foreground"></iconify-icon>
+              <p class="text-sm text-muted-foreground mt-2">Nothing here yet.</p>
+              <button class="add-open mt-3 text-sm font-semibold text-primary">+ Add a transaction</button></div>`;
+        return `<h1 class="font-heading text-xl font-bold mb-4">Transactions</h1>
+          <div class="flex gap-2 overflow-x-auto">${chips}</div>${body}`;
+      }
+
+      function field(label, id, value, type = "text", extra = "") {
+        return `<label class="block"><span class="text-xs text-muted-foreground">${label}</span>
+          <input id="${id}" type="${type}" value="${esc(value)}" ${extra}
+            class="mt-1 w-full bg-input rounded-xl px-3 py-2.5 border border-border focus:outline-2" /></label>`;
+      }
+      function viewProfile() {
+        const p = state.profile, g = state.goal;
+        return `<h1 class="font-heading text-xl font-bold mb-4">Profile</h1>
+          <form id="profileForm" class="space-y-4">
+            <div class="bg-card rounded-2xl p-5 shadow-sm border border-border space-y-3">
+              <h2 class="font-heading text-sm font-semibold">You</h2>
+              ${field("Name", "pName", p.name)}
+              ${field("Photo URL", "pAvatar", p.avatar, "url")}
+              <div class="grid grid-cols-2 gap-3">
+                ${field("Currency symbol", "pCur", p.currency, "text", 'maxlength="4"')}
+                ${field("Starting balance", "pStart", p.startBalance, "number", 'step="0.01" inputmode="decimal"')}
+              </div>
+              <p class="text-[11px] text-muted-foreground">Starting balance is what you had before you began tracking here.</p>
+            </div>
+            <div class="bg-card rounded-2xl p-5 shadow-sm border border-border space-y-3">
+              <h2 class="font-heading text-sm font-semibold">Savings goal</h2>
+              ${field("Goal name", "gName", g.name)}
+              <div class="grid grid-cols-2 gap-3">
+                ${field("Target", "gTarget", g.target, "number", 'step="0.01" min="0" inputmode="decimal"')}
+                ${field("Already saved", "gStart", g.startSaved, "number", 'step="0.01" min="0" inputmode="decimal"')}
+              </div>
+            </div>
+            <button class="w-full bg-primary text-primary-foreground rounded-xl py-3 font-semibold">Save changes</button>
+          </form>
+          <div class="bg-card rounded-2xl p-5 shadow-sm border border-border mt-4 space-y-2">
+            <h2 class="font-heading text-sm font-semibold mb-1">Your data</h2>
+            <p class="text-xs text-muted-foreground mb-2">Data is stored in this browser only. Export a backup to keep it safe or move it to another device.</p>
+            <button id="exportBtn" class="w-full flex items-center gap-3 py-2.5 text-sm"><iconify-icon icon="ph:download-simple" width="18" height="18"></iconify-icon>Export backup</button>
+            <button id="importBtn" class="w-full flex items-center gap-3 py-2.5 text-sm"><iconify-icon icon="ph:upload-simple" width="18" height="18"></iconify-icon>Import backup</button>
+            <button id="resetBtn" class="w-full flex items-center gap-3 py-2.5 text-sm text-destructive"><iconify-icon icon="ph:trash" width="18" height="18"></iconify-icon>Delete all data</button>
+          </div>`;
+      }
+
+      // ---------- Rendering ----------
+      const views = { home: viewHome, insights: viewInsights, transfers: viewTransfers, profile: viewProfile };
+      function render() {
+        document.getElementById("view").innerHTML = views[tab]();
+        document.getElementById("userName").textContent = state.profile.name || "You";
+        const av = document.getElementById("avatar");
+        if (av.getAttribute("src") !== state.profile.avatar) av.src = state.profile.avatar || "";
+        document.querySelectorAll(".nav-btn").forEach((b) => {
+          const on = b.dataset.tab === tab;
+          b.classList.toggle("text-primary", on);
+          b.classList.toggle("text-muted-foreground", !on);
+          b.querySelector("span").classList.toggle("font-semibold", on);
+          const ic = b.querySelector("iconify-icon");
+          ic.setAttribute("icon", ic.getAttribute("icon").replace(/-fill$/, "") + (on ? "-fill" : ""));
+        });
+        document.getElementById("bellDot").classList.toggle("hidden", state.tx.length <= state.seenCount);
+        document.getElementById("addBtn").classList.toggle("hidden", tab === "profile");
+      }
+
+      // ---------- Sheet ----------
+      const sheet = document.getElementById("sheet"), backdrop = document.getElementById("backdrop");
+      function openSheet(html) {
+        document.getElementById("sheetBody").innerHTML = `<div class="w-10 h-1 rounded-full bg-border mx-auto mb-4"></div>` + html;
+        sheet.classList.remove("hidden-sheet");
+        backdrop.classList.remove("opacity-0", "pointer-events-none");
+      }
+      function closeSheet() {
+        sheet.classList.add("hidden-sheet");
+        backdrop.classList.add("opacity-0", "pointer-events-none");
+      }
+      backdrop.onclick = closeSheet;
+
+      function openAdd(type = "expense") {
+        const tabs = [["expense", "Expense"], ["income", "Income"], ["saving", "Savings"]]
+          .map(([id, l]) => `<button type="button" data-type="${id}" class="flex-1 py-2 rounded-lg text-sm font-semibold ${type === id ? "bg-card shadow-sm" : "text-muted-foreground"}">${l}</button>`).join("");
+        const opts = CATEGORIES[type].map((c) => `<option value="${c.id}">${c.name}</option>`).join("");
+        openSheet(`<form id="addForm" class="space-y-4">
+          <h2 class="font-heading text-lg font-bold">Add transaction</h2>
+          <div class="flex bg-muted rounded-xl p-1 gap-1">${tabs}</div>
+          <label class="block"><span class="text-xs text-muted-foreground">Amount</span>
+            <div class="mt-1 flex items-center bg-input rounded-xl px-3 border border-border">
+              <span class="font-heading text-2xl font-bold text-muted-foreground">${esc(state.profile.currency)}</span>
+              <input id="fAmount" type="number" step="0.01" min="0.01" inputmode="decimal" required placeholder="0.00"
+                class="w-full bg-transparent px-2 py-3 font-heading text-2xl font-bold outline-none" /></div></label>
+          ${type === "saving" ? `<input type="hidden" id="fCat" value="savings" /><p class="text-xs text-muted-foreground">Moves money from your balance into “${esc(state.goal.name)}”.</p>`
+            : `<label class="block"><span class="text-xs text-muted-foreground">Category</span>
+              <select id="fCat" class="mt-1 w-full bg-input rounded-xl px-3 py-2.5 border border-border">${opts}</select></label>`}
+          ${field("Note (optional)", "fNote", "", "text", 'placeholder="e.g. Coffee with Mia" maxlength="60"')}
+          ${field("Date", "fDate", today(), "date", "required")}
+          <button class="w-full bg-primary text-primary-foreground rounded-xl py-3 font-semibold">Add</button>
+        </form>`);
+        document.querySelectorAll("[data-type]").forEach((b) => (b.onclick = () => openAdd(b.dataset.type)));
+        document.getElementById("addForm").onsubmit = (e) => {
+          e.preventDefault();
+          const amount = Math.round(parseFloat(document.getElementById("fAmount").value) * 100) / 100;
+          if (!(amount > 0)) return;
+          state.tx.push({
+            id: Date.now().toString(36) + Math.random().toString(36).slice(2, 6),
+            type, amount,
+            category: document.getElementById("fCat").value,
+            note: document.getElementById("fNote").value.trim(),
+            date: document.getElementById("fDate").value || today(),
+            created: new Date().toISOString(),
+          });
+          save(); closeSheet(); render();
+        };
+        setTimeout(() => document.getElementById("fAmount")?.focus(), 250);
+      }
+
+      function openActivity() {
+        state.seenCount = state.tx.length; save(); render();
+        const recent = [...state.tx].sort((a, b) => b.created.localeCompare(a.created)).slice(0, 8);
+        openSheet(`<h2 class="font-heading text-lg font-bold mb-4">Recent activity</h2>
+          ${recent.length ? `<div class="space-y-3">${recent.map((t) => txRow(t)).join("")}</div>`
+            : `<p class="text-sm text-muted-foreground py-6 text-center">No activity yet.</p>`}`);
+      }
+
+      // ---------- Events ----------
+      document.getElementById("addBtn").onclick = () => openAdd();
+      document.getElementById("bellBtn").onclick = openActivity;
+      document.addEventListener("click", (e) => {
+        const t = e.target.closest("[data-tab],[data-quick],[data-del],[data-filter],.add-open,#prevM,#nextM,#exportBtn,#importBtn,#resetBtn");
+        if (!t) return;
+        if (t.dataset.tab) { tab = t.dataset.tab; render(); window.scrollTo(0, 0); }
+        else if (t.dataset.quick) openAdd(t.dataset.quick);
+        else if (t.classList.contains("add-open")) openAdd();
+        else if (t.dataset.filter) { txFilter = t.dataset.filter; render(); }
+        else if (t.dataset.del) {
+          if (confirm("Delete this transaction?")) { state.tx = state.tx.filter((x) => x.id !== t.dataset.del); state.seenCount = Math.min(state.seenCount, state.tx.length); save(); render(); }
+        }
+        else if (t.id === "prevM") { insightMonth = shiftMonth(insightMonth, -1); render(); }
+        else if (t.id === "nextM") { insightMonth = shiftMonth(insightMonth, 1); render(); }
+        else if (t.id === "exportBtn") {
+          const blob = new Blob([JSON.stringify(state, null, 2)], { type: "application/json" });
+          const a = document.createElement("a");
+          a.href = URL.createObjectURL(blob);
+          a.download = `spendings-backup-${today()}.json`;
+          a.click();
+          setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+        }
+        else if (t.id === "importBtn") document.getElementById("importFile").click();
+        else if (t.id === "resetBtn") {
+          if (confirm("Delete all your transactions and settings? This can't be undone.")) { state = defaults(); save(); render(); }
+        }
+      });
+      document.addEventListener("submit", (e) => {
+        if (e.target.id !== "profileForm") return;
+        e.preventDefault();
+        const num = (id) => parseFloat(document.getElementById(id).value) || 0;
+        state.profile.name = document.getElementById("pName").value.trim();
+        state.profile.avatar = document.getElementById("pAvatar").value.trim();
+        state.profile.currency = document.getElementById("pCur").value.trim() || "$";
+        state.profile.startBalance = num("pStart");
+        state.goal.name = document.getElementById("gName").value.trim() || "Savings goal";
+        state.goal.target = num("gTarget");
+        state.goal.startSaved = num("gStart");
+        save(); tab = "home"; render(); window.scrollTo(0, 0);
+      });
+      document.getElementById("importFile").onchange = async (e) => {
+        const file = e.target.files[0];
+        e.target.value = "";
+        if (!file) return;
+        try {
+          const data = JSON.parse(await file.text());
+          if (!Array.isArray(data.tx)) throw new Error();
+          state = Object.assign(defaults(), data);
+          save(); render();
+          alert(`Imported ${state.tx.length} transactions.`);
+        } catch { alert("That file doesn't look like a Spendings backup."); }
+      };
+
+      render();
+    </script>
   </body>
 </html>
