@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FinanceDashboardHome</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;200;300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://code.iconify.design/iconify-icon/3.0.0/iconify-icon.min.js"></script>
+    <style type="text/tailwindcss">
+      @theme inline {
+        --color-background: var(--background);
+        --color-foreground: var(--foreground);
+        --color-primary: var(--primary);
+        --color-primary-foreground: var(--primary-foreground);
+        --color-secondary: var(--secondary);
+        --color-secondary-foreground: var(--secondary-foreground);
+        --color-muted: var(--muted);
+        --color-muted-foreground: var(--muted-foreground);
+        --color-accent: var(--accent);
+        --color-accent-foreground: var(--accent-foreground);
+        --color-destructive: var(--destructive);
+        --color-destructive-foreground: var(--destructive-foreground);
+        --color-card: var(--card);
+        --color-card-foreground: var(--card-foreground);
+        --color-popover: var(--popover);
+        --color-popover-foreground: var(--popover-foreground);
+        --color-border: var(--border);
+        --color-input: var(--input);
+        --color-ring: var(--ring);
+        --color-chart-1: var(--chart-1);
+        --color-chart-2: var(--chart-2);
+        --color-chart-3: var(--chart-3);
+        --color-chart-4: var(--chart-4);
+        --color-chart-5: var(--chart-5);
+
+        --font-sans: var(--font-sans);
+        --font-heading: var(--font-heading, var(--font-sans));
+        --font-serif: var(--font-serif);
+        --font-mono: var(--font-mono);
+      }
+
+      @theme {
+        --radius-xs: calc(var(--radius) - 8px);
+        --radius-sm: calc(var(--radius) - 4px);
+        --radius-md: calc(var(--radius) - 2px);
+        --radius-lg: var(--radius);
+        --radius-xl: calc(var(--radius) + 4px);
+        --radius-2xl: calc(var(--radius) + 8px);
+        --radius-3xl: calc(var(--radius) + 16px);
+        --radius-4xl: calc(var(--radius) + 24px);
+      }
+
+      * {
+        corner-shape: var(--shape, round);
+      }
+
+      .rounded-full, .rounded-none,
+      .rounded-t-full, .rounded-t-none,
+      .rounded-r-full, .rounded-r-none,
+      .rounded-b-full, .rounded-b-none,
+      .rounded-l-full, .rounded-l-none,
+      .rounded-s-full, .rounded-s-none,
+      .rounded-e-full, .rounded-e-none,
+      .rounded-tl-full, .rounded-tl-none,
+      .rounded-tr-full, .rounded-tr-none,
+      .rounded-bl-full, .rounded-bl-none,
+      .rounded-br-full, .rounded-br-none,
+      .rounded-ss-full, .rounded-ss-none,
+      .rounded-se-full, .rounded-se-none,
+      .rounded-es-full, .rounded-es-none,
+      .rounded-ee-full, .rounded-ee-none {
+        corner-shape: round;
+      }
+
+      @utility rounded-* {
+        border-radius: calc(--value(--radius-*, [length], [percentage]) * var(--shape-multiplier, 1));
+      }
+      @utility rounded-t-* {
+        border-top-left-radius: calc(--value(--radius-*, [length], [percentage]) * var(--shape-multiplier, 1));
+        border-top-right-radius: calc(--value(--radius-*, [length], [percentage]) * var(--shape-multiplier, 1));
+      }
+      @utility rounded-r-* {
+        border-top-right-radius: calc(--value(--radius-*, [length], [percentage]) * var(--shape-multiplier, 1));
+        border-bottom-right-radius: calc(--value(--radius-*, [length], [percentage]) * var(--shape-multiplier, 1));
+      }
+      @utility rounded-b-* {
+        border-bottom-right-radius: calc(--value(--radius-*, [length], [percentage]) * var(--shape-multiplier, 1));
+        border-bottom-left-radius: calc(--value(--radius-*, [length], [percentage]) * var(--shape-multiplier, 1));
+      }
+      @utility rounded-l-* {
+        border-top-left-radius: calc(--value(--radius-*, [length], [percentage]) * var(--shape-multiplier, 1));
+        border-bottom-left-radius: calc(--value(--radius-*, [length], [percentage]) * var(--shape-multiplier, 1));
+      }
+      @utility rounded-tl-* {
+        border-top-left-radius: calc(--value(--radius-*, [length], [percentage]) * var(--shape-multiplier, 1));
+      }
+      @utility rounded-tr-* {
+        border-top-right-radius: calc(--value(--radius-*, [length], [percentage]) * var(--shape-multiplier, 1));
+      }
+      @utility rounded-bl-* {
+        border-bottom-left-radius: calc(--value(--radius-*, [length], [percentage]) * var(--shape-multiplier, 1));
+      }
+      @utility rounded-br-* {
+        border-bottom-right-radius: calc(--value(--radius-*, [length], [percentage]) * var(--shape-multiplier, 1));
+      }
+      @utility rounded-s-* {
+        border-start-start-radius: calc(--value(--radius-*, [length], [percentage]) * var(--shape-multiplier, 1));
+        border-end-start-radius: calc(--value(--radius-*, [length], [percentage]) * var(--shape-multiplier, 1));
+      }
+      @utility rounded-e-* {
+        border-start-end-radius: calc(--value(--radius-*, [length], [percentage]) * var(--shape-multiplier, 1));
+        border-end-end-radius: calc(--value(--radius-*, [length], [percentage]) * var(--shape-multiplier, 1));
+      }
+      @utility rounded-ss-* {
+        border-start-start-radius: calc(--value(--radius-*, [length], [percentage]) * var(--shape-multiplier, 1));
+      }
+      @utility rounded-se-* {
+        border-start-end-radius: calc(--value(--radius-*, [length], [percentage]) * var(--shape-multiplier, 1));
+      }
+      @utility rounded-es-* {
+        border-end-start-radius: calc(--value(--radius-*, [length], [percentage]) * var(--shape-multiplier, 1));
+      }
+      @utility rounded-ee-* {
+        border-end-end-radius: calc(--value(--radius-*, [length], [percentage]) * var(--shape-multiplier, 1));
+      }
+
+      @layer base {
+        * {
+          @apply border-border outline-ring/50;
+        }
+        body {
+          @apply bg-background text-foreground font-sans;
+        }
+      }
+
+      :root {
+        --shape: squircle;
+        --shape-multiplier: 1;
+
+        --background: #FBF7F0;
+        --foreground: #1B2A2E;
+        --primary: #0F5257;
+        --primary-foreground: #FFFFFF;
+        --secondary: #E4EFEC;
+        --secondary-foreground: #0F5257;
+        --muted: #F2EDE4;
+        --muted-foreground: #6B7776;
+        --accent: #FDE4DB;
+        --accent-foreground: #A8422C;
+        --destructive: #C0392B;
+        --destructive-foreground: #FFFFFF;
+        --card: #FFFFFF;
+        --card-foreground: #1B2A2E;
+        --popover: #FFFFFF;
+        --popover-foreground: #1B2A2E;
+        --border: #E8E1D5;
+        --input: #F5F0E7;
+        --ring: #0F5257;
+        --chart-1: #F0735B;
+        --chart-2: #0F5257;
+        --chart-3: #F5A893;
+        --chart-4: #7FB3AE;
+        --chart-5: #D9CFC0;
+
+        --font-sans: "Inter", sans-serif;
+        --font-heading: "Manrope", sans-serif;
+        --font-serif: "Playfair Display", serif;
+        --font-mono: "JetBrains Mono", monospace;
+
+        --radius: 1rem;
+      }
+
+      @supports (corner-shape: squircle) {
+        :root {
+          --shape-multiplier: 2.5;
+        }
+      }
+
+      /* Prevent layout shift for icons without explicit dimensions */
+      iconify-icon:not([width]):not([height]) {
+        display: inline-block;
+        width: 1em;
+        height: 1em;
+      }
+
+      /* Hide scrollbars */
+      *,
+      *::before,
+      *::after {
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+      }
+      *::-webkit-scrollbar {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <div class="min-h-screen bg-background text-foreground pb-24 px-5 pt-6 max-w-md mx-auto">
+        <div class="flex items-center justify-between mb-5">
+          <div class="flex items-center gap-3">
+            <img
+              src="https://avatars.githubusercontent.com/u/194534674?v=4"
+              alt="Amelie Totz"
+              class="size-10 rounded-full object-cover border border-border"
+            />
+            <div>
+              <p class="text-xs text-muted-foreground">Welcome back</p>
+              <p class="text-sm font-semibold">Amelie Totz</p>
+            </div>
+          </div>
+          <button
+            class="size-10 rounded-full bg-card border border-border shadow-sm flex items-center justify-center"
+          >
+            <iconify-icon icon="ph:bell" width="20" height="20"></iconify-icon>
+          </button>
+        </div>
+        <div class="bg-primary text-primary-foreground rounded-2xl p-5 shadow-sm mb-4">
+          <div class="flex items-center justify-between">
+            <div>
+              <p class="text-xs opacity-80">Total balance</p>
+              <h2 class="font-heading text-3xl font-bold mt-1">$24,580.40</h2>
+            </div>
+            <div class="text-right">
+              <p class="text-xs opacity-80">This month</p>
+              <p class="text-sm font-semibold text-chart-3">+$1,240</p>
+            </div>
+          </div>
+        </div>
+        <div
+          class="bg-card text-card-foreground rounded-2xl p-5 shadow-sm border border-border mb-4"
+        >
+          <div class="flex items-center justify-between mb-4">
+            <h2 class="font-heading text-base font-semibold">Monthly spending</h2>
+            <span class="text-xs text-muted-foreground">May 2025</span>
+          </div>
+          <div class="flex items-center gap-5">
+            <div class="relative size-32 shrink-0">
+              <svg viewBox="0 0 36 36" class="size-32 -rotate-90">
+                <circle cx="18" cy="18" r="14" fill="none" stroke="#E8E1D5" stroke-width="5" />
+                <circle
+                  cx="18"
+                  cy="18"
+                  r="14"
+                  fill="none"
+                  stroke="#F0735B"
+                  stroke-width="5"
+                  stroke-dasharray="36 88"
+                  stroke-linecap="round"
+                />
+                <circle
+                  cx="18"
+                  cy="18"
+                  r="14"
+                  fill="none"
+                  stroke="#0F5257"
+                  stroke-width="5"
+                  stroke-dasharray="26 98"
+                  stroke-dashoffset="-37"
+                  stroke-linecap="round"
+                />
+                <circle
+                  cx="18"
+                  cy="18"
+                  r="14"
+                  fill="none"
+                  stroke="#F5A893"
+                  stroke-width="5"
+                  stroke-dasharray="18 106"
+                  stroke-dashoffset="-65"
+                  stroke-linecap="round"
+                />
+                <circle
+                  cx="18"
+                  cy="18"
+                  r="14"
+                  fill="none"
+                  stroke="#7FB3AE"
+                  stroke-width="5"
+                  stroke-dasharray="12 112"
+                  stroke-dashoffset="-84"
+                  stroke-linecap="round"
+                />
+              </svg>
+              <div class="absolute inset-0 flex flex-col items-center justify-center">
+                <p class="text-xs text-muted-foreground">Spent</p>
+                <p class="font-heading text-lg font-bold">$3,842</p>
+              </div>
+            </div>
+            <div class="flex-1 space-y-2.5 text-sm">
+              <div class="flex items-center justify-between">
+                <span class="flex items-center gap-2"
+                  ><span class="size-2.5 rounded-full bg-chart-1"></span>Housing</span
+                ><span class="font-semibold">38%</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="flex items-center gap-2"
+                  ><span class="size-2.5 rounded-full bg-chart-2"></span>Food</span
+                ><span class="font-semibold">26%</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="flex items-center gap-2"
+                  ><span class="size-2.5 rounded-full bg-chart-3"></span>Transport</span
+                ><span class="font-semibold">18%</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="flex items-center gap-2"
+                  ><span class="size-2.5 rounded-full bg-chart-4"></span>Other</span
+                ><span class="font-semibold">18%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="bg-card rounded-2xl p-5 shadow-sm border border-border mb-6">
+          <div class="flex items-center justify-between mb-3">
+            <div>
+              <p class="text-xs text-muted-foreground">Savings goal</p>
+              <p class="font-heading text-sm font-semibold">Emergency fund</p>
+            </div>
+            <span class="text-sm font-bold text-primary">68%</span>
+          </div>
+          <div class="h-2.5 w-full rounded-full bg-muted overflow-hidden">
+            <div class="h-full w-[68%] rounded-full bg-primary"></div>
+          </div>
+          <div class="flex justify-between text-xs text-muted-foreground mt-2">
+            <span>$13,600 saved</span><span>Goal $20,000</span>
+          </div>
+        </div>
+        <div class="flex items-center justify-between mb-3">
+          <h2 class="font-heading text-base font-semibold">Expense categories</h2>
+          <span class="text-xs text-primary font-semibold">See all</span>
+        </div>
+        <div class="space-y-3">
+          <div
+            class="bg-card rounded-2xl p-4 shadow-sm border border-border flex items-center gap-3"
+          >
+            <div class="size-11 rounded-xl bg-accent flex items-center justify-center">
+              <iconify-icon
+                icon="ph:house"
+                class="text-accent-foreground"
+                width="20"
+                height="20"
+              ></iconify-icon>
+            </div>
+            <div class="flex-1">
+              <p class="text-sm font-semibold">Housing</p>
+              <p class="text-xs text-muted-foreground">Rent &amp; utilities</p>
+            </div>
+            <p class="text-sm font-semibold">$1,460.00</p>
+          </div>
+          <div
+            class="bg-card rounded-2xl p-4 shadow-sm border border-border flex items-center gap-3"
+          >
+            <div class="size-11 rounded-xl bg-secondary flex items-center justify-center">
+              <iconify-icon
+                icon="ph:shopping-cart"
+                class="text-secondary-foreground"
+                width="20"
+                height="20"
+              ></iconify-icon>
+            </div>
+            <div class="flex-1">
+              <p class="text-sm font-semibold">Groceries</p>
+              <p class="text-xs text-muted-foreground">Food &amp; dining</p>
+            </div>
+            <p class="text-sm font-semibold">$998.25</p>
+          </div>
+          <div
+            class="bg-card rounded-2xl p-4 shadow-sm border border-border flex items-center gap-3"
+          >
+            <div class="size-11 rounded-xl bg-accent flex items-center justify-center">
+              <iconify-icon
+                icon="ph:car"
+                class="text-accent-foreground"
+                width="20"
+                height="20"
+              ></iconify-icon>
+            </div>
+            <div class="flex-1">
+              <p class="text-sm font-semibold">Transport</p>
+              <p class="text-xs text-muted-foreground">Fuel &amp; transit</p>
+            </div>
+            <p class="text-sm font-semibold">$691.60</p>
+          </div>
+          <div
+            class="bg-card rounded-2xl p-4 shadow-sm border border-border flex items-center gap-3"
+          >
+            <div class="size-11 rounded-xl bg-secondary flex items-center justify-center">
+              <iconify-icon
+                icon="ph:court-basketball"
+                class="text-secondary-foreground"
+                width="20"
+                height="20"
+              ></iconify-icon>
+            </div>
+            <div class="flex-1">
+              <p class="text-sm font-semibold">Leisure</p>
+              <p class="text-xs text-muted-foreground">Entertainment</p>
+            </div>
+            <p class="text-sm font-semibold">$692.90</p>
+          </div>
+        </div>
+      </div>
+      <div class="fixed bottom-0 left-0 right-0 bg-card border-t border-border">
+        <div class="max-w-md mx-auto flex justify-around py-3">
+          <button class="flex-1 flex flex-col items-center gap-1 text-primary">
+            <iconify-icon icon="ph:house-fill" width="24" height="24"></iconify-icon
+            ><span class="text-[11px] font-semibold">Home</span></button
+          ><button class="flex-1 flex flex-col items-center gap-1 text-muted-foreground">
+            <iconify-icon icon="ph:chart-pie" width="24" height="24"></iconify-icon
+            ><span class="text-[11px]">Insights</span></button
+          ><button class="flex-1 flex flex-col items-center gap-1 text-muted-foreground">
+            <iconify-icon icon="ph:arrows-left-right" width="24" height="24"></iconify-icon
+            ><span class="text-[11px]">Transfers</span></button
+          ><button class="flex-1 flex flex-col items-center gap-1 text-muted-foreground">
+            <iconify-icon icon="ph:user" width="24" height="24"></iconify-icon
+            ><span class="text-[11px]">Profile</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
